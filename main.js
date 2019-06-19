@@ -73,9 +73,9 @@ function startJupyter(){
                 var token = out.substring(out.indexOf('=') + 1, out.indexOf('=') + 50);
 
                 getDockerIPv4().then((ip) => {
-                console.log("This is the IP:", ip);
-              
-                resolve('http://' + ip + ':8888 /?token=' + token);
+                    console.log("This is the IP:", ip);
+
+                resolve('http://' + ip + ':8888/?token=' + token);
               })
           }
         })
