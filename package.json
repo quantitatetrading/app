@@ -20,6 +20,5 @@
   "dependencies": {
     "command-exists": "^1.2.8",
     "electron": "^5.0.4"
-    
   }
 }
