@@ -43,8 +43,8 @@ function removeContainers(callback){
 
 function getDockerIPv4() {
     return new Promise ((resolve, reject) => {
-      exec("docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' quantitate", (error, stdout, stderr) => {
-        resolve(stdout)
+      exec("docker-machine ip", (error, stdout, stderr) => {
+          resolve(stdout);
     })
   })
 }
@@ -75,7 +75,7 @@ function startJupyter(){
                 getDockerIPv4().then((ip) => {
                 console.log("This is the IP:", ip);
               
-                resolve('http://' + ip + ':8888 /?token=' + token);
+                resolve('http://' + ip + ':8888/?token=' + token);
               })
           }
         })
