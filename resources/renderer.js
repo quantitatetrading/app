@@ -1,16 +1,19 @@
-onload = () => {
+// const {ipcRenderer, shell} = require('electron')
 
-  var ide = document.getElementById('IDE')
+// var ide;
 
-  require('electron').ipcRenderer.on('url', (event, url) => {
+// onload = () => {
 
-    document.getElementById('loading').style.display = 'none'
-    document.getElementById('IDE').style.display = 'flex'
+//   ide = document.getElementById('IDE')
 
-    console.log(url)
+//   ipcRenderer.on('url', (event, url) => {
 
-    ide.src = url
+//     document.getElementById('loading').style.display = 'none'
+//     ide.style.display = 'flex'
 
-  })
+//     ide.src = url
+//     console.log(url)
 
-}
+//   })
+
+// }
