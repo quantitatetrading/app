@@ -1,10 +1,16 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const { exec, spawn } = require('child_process');
+const dockerPresent = require('\dockerExist');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+
+if (dockerPresent.dockerExist() = true)
+{
+    console.log('Docker is present on your system')
+}
 
 function createWindow (error, stdout, stderr) {
 
