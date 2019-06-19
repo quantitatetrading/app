@@ -43,9 +43,13 @@ function removeContainers(callback){
 
 function getDockerIPv4() {
     return new Promise ((resolve, reject) => {
-      exec("docker-machine ip", (error, stdout, stderr) => {
-          resolve(stdout);
-    })
+      if(process.platform == "win32"){
+        exec("docker-machine ip", (error, stdout, stderr) => {
+            resolve(stdout);
+        })
+      } else {
+        resolve("127.0.0.1")
+      }
   })
 }
 
