@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, BrowserView} = require('electron')
 const { exec, spawn } = require('child_process');
 const dockerPresent = require('\dockerExist');
 
@@ -27,9 +27,7 @@ function createWindow (error, stdout, stderr) {
 
   startJupyter().then((url) => {
 
-      console.log("HEY", url);
-
-      mainWindow.webContents.send('url', url);
+      // mainWindow.webContents.send('url', url);
 
     mainWindow.on('closed', function () {
 
@@ -37,6 +35,12 @@ function createWindow (error, stdout, stderr) {
 
         mainWindow = null;
     })
+
+    let view = new BrowserView()
+    mainWindow.setBrowserView(view)
+    view.setBounds({ x: 0, y: 0, width: 1920, height: 1080 })
+    view.setAutoResize({width:true, height: true})
+    view.webContents.loadURL(url)
 
   })
 
