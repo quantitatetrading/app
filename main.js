@@ -40,7 +40,7 @@ function createWindow(error, stdout, stderr) {
 
     let view = new BrowserView()
     mainWindow.setBrowserView(view)
-    view.setBounds({ x: 0, y: 0, width: 1920, height: 1080 })
+    view.setBounds({ x: 0, y: 0, width: width, height: height })
     view.setAutoResize({width:true, height: true})
     view.webContents.loadURL(url)
 
