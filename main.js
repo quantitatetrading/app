@@ -15,10 +15,10 @@ if (commandExists('docker')) {
 }
 
 function createWindow(error, stdout, stderr) {
-
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
   mainWindow = new BrowserWindow({
-    width: 1920,
-    height: 1080,
+    width: width,
+    height: height,
     webPreferences: {
       nodeIntegration: true,
       webviewTag: true,
